@@ -33,8 +33,7 @@ ALLOWED_HOSTS = []
 # if a new app is created add it to this list
 
 INSTALLED_APPS = [
-    'channels',
-    'backend',
+    'rest_api',
     'rest_framework',
     'djangochannelsrestframework',
     'django.contrib.admin',
@@ -55,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'bdbackend.urls'
+ROOT_URLCONF = 'userBackend.urls'
 
 TEMPLATES = [
     {
@@ -73,16 +72,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'bdbackend.wsgi.application'
-ASGI_APPLICATION = "bdbackend.asgi.application"
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            "hosts": [('127.0.0.1', 6379)],
-        },
-    },
-}
+WSGI_APPLICATION = 'userBackend.wsgi.application'
+
 
 
 # Database

@@ -1,12 +1,12 @@
 from datetime import datetime
 from typing_extensions import Required
 from rest_framework import fields, serializers, viewsets
-from backend.models.appointment import Appointment
-from backend.models.donationQuestion import DonationQuestion
-from backend.models.person import Person
-from backend.models.request import Request
-from backend.models.capacity import Capacity
-from backend.models.faqQuestion import FaqQuestion
+from rest_api.models.appointment import Appointment
+from rest_api.models.donationQuestion import DonationQuestion
+from rest_api.models.person import Person
+from rest_api.models.request import Request
+from rest_api.models.capacity import Capacity
+from rest_api.models.faqQuestion import FaqQuestion
 
 
 

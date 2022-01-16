@@ -1,6 +1,6 @@
 from rest_framework import status
 from rest_framework.test import APITestCase
-from backend.models import appointments
+from rest_api.models import appointments
 
 # writing unit tests
 # Create your tests here.

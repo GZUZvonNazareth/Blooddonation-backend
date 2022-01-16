@@ -4,21 +4,19 @@ from django.http import HttpResponse, response
 from rest_framework import generics, serializers, viewsets
 from rest_framework.views import APIView
 #from rest_framework.decorators import Response
-from backend.rest_api.serializers import FaqQuestionSerializer ,AppointmentSerializer, DonationQuestionSerializer, RequestIDSerializer, RequestSerializer, PersonSerializer, CapacitySerializer
-from .models.appointment import Appointment
-from .models.donationQuestion import DonationQuestion
-from .models.request import Request
-from .models.person import Person
-from .models.capacity import Capacity
-from .models.faqQuestion import FaqQuestion
+from rest_api.rest_api.serializers import FaqQuestionSerializer ,AppointmentSerializer, DonationQuestionSerializer, RequestIDSerializer, RequestSerializer, PersonSerializer, CapacitySerializer
+from rest_api.models.appointment import Appointment
+from rest_api.models.donationQuestion import DonationQuestion
+from rest_api.models.request import Request
+from rest_api.models.person import Person
+from rest_api.models.capacity import Capacity
+from rest_api.models.faqQuestion import FaqQuestion
 from rest_framework.response import Response
 import json
 from datetime import time, timedelta, datetime, date
 from django.utils.dateparse import parse_date, parse_datetime, parse_time
 from rest_framework import status
 import math
-
-
 
 
 def addTime(setTime, timeToAdd):
@@ -118,62 +116,5 @@ class appointmentCreate(generics.ListCreateAPIView):
                 return Response(serializer.data, status = status.HTTP_201_CREATED)
         
         error = {'error': 'HTTP_400_BAD_REQUEST' , 'message':'du bist ein schlingel'}
-        return Response(data=json.loads(json.dumps(error)) , status = status.HTTP_400_BAD_REQUEST )
+        return Response(data=json.loads(json.dumps(error)) , status = status.HTTP_400_BAD_REQUEST)
                     
-            
-            
-
-    
-
-
-
-class donationQuestionList(generics.ListCreateAPIView):
-    queryset = DonationQuestion.objects.all()
-    serializer_class = DonationQuestionSerializer
-
-class faqQuestionsList(generics.ListCreateAPIView):
-    queryset = FaqQuestion.objects.all()
-    serializer_class = FaqQuestionSerializer
-
-'''def index(request):
-    return render(request, 'backend/index.html')'''
-
-'''
-# creates ,update ,deleate ,patch
-class appointmentDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = appointment.objects.all()
-    serializer_class = appointmentSerializer
-'''
-
-
-# creates get and post 
-class requestList(generics.ListCreateAPIView):
-    queryset = Request.objects.all()
-    serializer_class = RequestSerializer
-
-# creates ,update ,deleate ,patch
-class requestDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Request.objects.all()
-    serializer_class = RequestSerializer 
-
-
-# creates get and post 
-class personList(generics.ListCreateAPIView):
-    queryset = Person.objects.all()
-    serializer_class = PersonSerializer
-
-# creates ,update ,deleate ,patch
-class personDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Person.objects.all()
-    serializer_class = PersonSerializer 
-
-
-# creates get and post 
-class capacityList(generics.ListCreateAPIView):
-    queryset = Capacity.objects.all()
-    serializer_class = CapacitySerializer
-
-# creates ,update ,deleate ,patch
-class capacityDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Capacity.objects.all()
-    serializer_class = CapacitySerializer

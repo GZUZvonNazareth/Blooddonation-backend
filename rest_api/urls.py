@@ -1,6 +1,6 @@
 from django.db import router
 from django.urls import path, include
-from . import views
+from .views import appointmentViews, donationQuestionView, faqQuestionListView, personView
 from rest_framework import routers
 
 
@@ -14,13 +14,13 @@ urlpatterns =[
     path('', include(router.urls)),
     
 
-    path('appointments', views.freeAppointmentsView.as_view()),
-    path('appointment_status', views.appointmentStatusView.as_view()),
-    path('appointment', views.appointmentCreate.as_view()),
+    path('appointments', appointmentViews.freeAppointmentsView.as_view()),
+    path('appointment_status', appointmentViews.appointmentStatusView.as_view()),
+    path('appointment', appointmentViews.appointmentCreate.as_view()),
     #path('appointment/<int:pk>', views.appointmentDetail.as_view()),
 
-    path('donationquestions', views.donationQuestionList.as_view()),
-    path('faqquestions', views.faqQuestionsList.as_view()),
+    path('donationquestions', donationQuestionView.donationQuestionList.as_view()),
+    path('faqquestions', faqQuestionListView.faqQuestionsList.as_view()),
     # todo onboardingpages
     # todo request, capacities only via socket
     
@@ -29,8 +29,8 @@ urlpatterns =[
     #path('reserved_appointments/', views.reserved_appointmentsList.as_view()),
     #path('assigned_appointments/', views.assigned_appointmentsList.as_view()),
     #path('appointment/', views.free_appointmentList.as_view()),
-    path('request/', views.requestList.as_view()),
-    path('person/', views.personList.as_view()),
-    path('capacity/', views.capacityList.as_view()),
+    #path('request/', views.requestList.as_view()),
+    path('person/', personView.personList.as_view()),
+    #path('capacity/', views.capacityList.as_view()),
     #path('', views.index, name = 'index')
 ]

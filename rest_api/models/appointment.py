@@ -1,6 +1,6 @@
 from django.db import models
-from backend.models.person import Person
-from backend.models.request import Request as r
+from rest_api.models.person import Person
+from rest_api.models.request import Request as r
 from datetime import datetime
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
